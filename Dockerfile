@@ -1,4 +1,4 @@
-FROM cimg/ruby:2.6-browsers
+FROM docker.io/cimg/ruby:2.6-browsers
 
 ENV PORT 4000
 ENV NOKOGIRI_USE_SYSTEM_LIBRARIES true
@@ -11,8 +11,6 @@ RUN apt-get update \
     && apt-get install -y wait-for-it \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
-USER ${RUNAS}
 
 # Copy useful files inside the workdir
 COPY .well-known .well-known
